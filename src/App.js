@@ -6,15 +6,20 @@ class App extends Component {
 
   constructor(){
     super();
+    document.title = "React App"
     this.state={
       number: ""
     }
     
   }
+ 
+   
+  
 
   render() {
     return (
       <div className="App">
+	      <h1>Daniel y Sebastián - CodeBreaker</h1>
         <input type="number" pattern="[0-9]*" value={this.state.name} onChange={this.updateNumber.bind(this)}/>
         <button onClick={this.game.bind(this)}>Adivinar</button>
       </div>
@@ -27,7 +32,7 @@ class App extends Component {
     });
   }
   game(){
-    axios.get('https://codebreakertdd.herokuapp.com/api/codebreaker/' + this.state.number)
+    axios.get('http://localhost:8000/api/codebreaker/' + this.state.number)
       .then(response => {
      // var res=JSON.parse(this.response);
       alert(response.data);
